@@ -1,0 +1,31 @@
+{% extends "pluggable_dashboard/base.html" %}
+{% load static %}
+{% load dashboard_tags %} {# Load custom template tags #}
+
+{% block title %}
+Example Dashboard - {{ block.super }}
+{% endblock title %}
+
+{% block content %}
+{# You can add more dashboard elements here if needed #}
+
+{# Include the table component #}
+{% include "pluggable_dashboard/components/table.html" with table_config=table_data %}
+
+{# Example of another card, if desired #}
+{#
+<div class="row mt-4">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                Another Card
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Simple Widget</h5>
+                <p class="card-text">This is a simple widget example.</p>
+            </div>
+        </div>
+    </div>
+</div>
+#}
+{% endblock content %}

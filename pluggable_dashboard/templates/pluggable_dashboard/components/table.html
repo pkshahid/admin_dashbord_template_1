@@ -1,0 +1,26 @@
+<div class="card">
+  {% if table_config.title %}
+  <h5 class="card-header">{{ table_config.title }}</h5>
+  {% endif %}
+  <div class="table-responsive text-nowrap">
+    <table class="table">
+      <thead>
+        <tr>
+          {% for column in table_config.columns %}
+          <th>{{ column.header }}</th>
+          {% endfor %}
+        </tr>
+      </thead>
+      <tbody class="table-border-bottom-0">
+        {% for row in table_config.data %}
+        <tr>
+          {% for column in table_config.columns %}
+          {# This will require the get_item filter/tag to be created later #}
+          <td>{{ row|get_item:column.key }}</td>
+          {% endfor %}
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
